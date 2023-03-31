@@ -33,4 +33,14 @@ public class Graph {
     public boolean hasEdge(char k1, char k2){
         return matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)];
     }
+
+    public boolean isCircular(String s){
+        boolean isCircular = true;
+        for (int i = 0; i < s.length()-1; i++) {
+            if (!matrix[searchVerticeIndex(s.charAt(i))][searchVerticeIndex(s.charAt(i+1))]){
+                return false;
+            }
+        }
+        return true;
+    }
 }
