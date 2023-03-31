@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Graph {
 
@@ -13,13 +14,16 @@ public class Graph {
 
     public void addVertice(char k){
         if (charList.size() >= matrix.length){
-            return;
+            throw new ArrayIndexOutOfBoundsException("all Vertices are already set");
         }
         charList.add(k);
     }
 
-    public int searchVericeIndex(char zeichen){
-        return 0;
+    public int searchVerticeIndex(char zeichen) {
+        if (!charList.contains(zeichen)){
+            throw new ArrayIndexOutOfBoundsException("char not found");
+        }
+        return charList.indexOf(zeichen);
     }
 
     public void addEdge(char k1, char k2){
