@@ -28,19 +28,40 @@ public class Graph {
 
     public void addEdge(char k1, char k2){
         matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)] = true;
+        matrix[searchVerticeIndex(k2)][searchVerticeIndex(k1)] = true;
     }
 
     public boolean hasEdge(char k1, char k2){
         return matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)];
     }
 
-    public boolean isCircular(String s){
-        boolean isCircular = true;
-        for (int i = 0; i < s.length()-1; i++) {
-            if (!matrix[searchVerticeIndex(s.charAt(i))][searchVerticeIndex(s.charAt(i+1))]){
-                return false;
+    public boolean isAnyCharRepeated(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (str.indexOf(c) != str.lastIndexOf(c)) {
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+
+    public boolean isCircular(String s){
+        Graph usedEdges = new Graph(matrix.length);
+        for (int i = 0; i < matrix.length; i++) {
+            usedEdges.addVertice(charList.get(i));
+        }
+        for (int i = 0; i < s.length()-1; i++) {
+            if (!hasEdge(s.charAt(i), s.charAt(i+1)) || usedEdges.hasEdge(s.charAt(i), s.charAt(i+1))){
+                return false;
+            }
+            usedEdges.addEdge(s.charAt(i), s.charAt(i+1));
+        }
+        return (hasEdge(s.charAt(0), s.charAt(s.length()-1)));
+
+    }
+
+    public boolean[][] getMatrix() {
+        return matrix;
     }
 }
