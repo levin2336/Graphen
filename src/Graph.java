@@ -27,10 +27,10 @@ public class Graph {
     }
 
     public void addEdge(char k1, char k2){
-        matrix[searchVericeIndex(k1)][searchVericeIndex(k2)] = true;
+        matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)] = true;
     }
 
     public boolean hasEdge(char k1, char k2){
-        return matrix[searchVericeIndex(k1)][searchVericeIndex(k2)];
+        return matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)];
     }
 }
