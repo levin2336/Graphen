@@ -1,9 +1,8 @@
 public class Graph {
 
-    int[][]
-
-    public Graph() {
-
+    boolean[][] matrix;
+    public Graph(int anzahl) {
+        matrix = new boolean[anzahl][anzahl];
     }
 
     public void addVertice(char k){
