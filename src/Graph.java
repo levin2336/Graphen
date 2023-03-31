@@ -23,10 +23,10 @@ public class Graph {
     }
 
     public void addEdge(char k1, char k2){
-
+        matrix[searchVericeIndex(k1)][searchVericeIndex(k2)] = true;
     }
 
     public boolean hasEdge(char k1, char k2){
-        return true;
+        return matrix[searchVericeIndex(k1)][searchVericeIndex(k2)];
     }
 }
