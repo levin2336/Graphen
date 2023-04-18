@@ -13,14 +13,12 @@ public class Graph {
     }
 
     public boolean equals (Graph input) {
-        boolean[][] m1 = this.matrix;
-        boolean[][] m2 = input.getMatrix();
-        if (m1.length != m2.length) return false;
-        for (int i = 0; i < m1.length; i++) {
-            if (m1[i].length != m2[i].length) return false;
-            for (int j = 0; j < m1[i].length; j++) {
-                boolean b1 = m1[i][j];
-                boolean b2 = m2[i][j];
+        if (this.matrix.length != input.getMatrix().length) return false;
+        for (int i = 0; i < this.matrix.length; i++) {
+            if (this.matrix[i].length != input.getMatrix()[i].length) return false;
+            for (int j = 0; j < this.matrix[i].length; j++) {
+                boolean b1 = this.matrix[i][j];
+                boolean b2 = input.getMatrix()[i][j];
                 if (b1 != b2) return false;
             }
         }
@@ -50,17 +48,6 @@ public class Graph {
         return matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)];
     }
 
-    public boolean isAnyCharRepeated(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            if (str.indexOf(c) != str.lastIndexOf(c)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
     public boolean isCircular(String s){
         Graph usedEdges = new Graph(matrix.length);
         for (int i = 0; i < matrix.length; i++) {
@@ -75,9 +62,30 @@ public class Graph {
         return equals(usedEdges);
     }
 
-
-
     public boolean[][] getMatrix() {
         return matrix;
+    }
+
+    public ArrayList<String> allSolutions(){
+        ArrayList<String> solutions;
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; i < 5; i++) {
+                for (int k = 0; i < 5; i++) {
+                    for (int l = 0; i < 5; i++) {
+                        for (int m = 0; i < 5; i++) {
+                            for (int n = 0; i < 5; i++) {
+                                for (int o = 0; i < 5; i++) {
+                                    for (int p = 0; i < 5; i++) {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
