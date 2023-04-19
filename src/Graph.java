@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Graph {
 
@@ -67,40 +66,37 @@ public class Graph {
     }
 
     public String intToString(int input){
-        switch (input){
-            case 0:
-                return "A";
-            case 1:
-                return "B";
-            case 2:
-                return "C";
-            case 3:
-                return "D";
-            case 4:
-                return "E";
-            default:
-                return "X";
-        }
+        return switch (input) {
+            case 0 -> "A";
+            case 1 -> "B";
+            case 2 -> "C";
+            case 3 -> "D";
+            case 4 -> "E";
+            default -> "X";
+        };
     }
 
     public ArrayList<String> allSolutions(){
         String Current;
         ArrayList<String> solutions = new ArrayList<>();
+        //int counter = 0;
 
 
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; i < 5; j++) {
-                for (int k = 0; i < 5; k++) {
-                    for (int l = 0; i < 5; l++) {
-                        for (int m = 0; i < 5; m++) {
-                            for (int n = 0; i < 5; n++) {
-                                for (int o = 0; i < 5; o++) {
-                                    for (int p = 0; i < 5; p++) {
-                                        System.out.println(p);
-                                        Current = (intToString(i)+intToString(j)+intToString(k)+intToString(l)+intToString(m)+intToString(n)+intToString(o)+intToString(p));
-                                        if(isCircular(Current)){
-                                            solutions.add(Current);
-                                            System.out.println(Current);
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    for (int l = 0; l < 5; l++) {
+                        for (int m = 0; m < 5; m++) {
+                            for (int n = 0; n < 5; n++) {
+                                for (int o = 0; o < 5; o++) {
+                                    for (int p = 0; p < 5; p++) {
+                                        for (int q = 0; q < 5; q++) {
+                                            Current = (intToString(i)+intToString(j)+intToString(k)+intToString(l)+intToString(m)+intToString(n)+intToString(o)+intToString(p)+intToString(q));
+
+                                            if(isCircular(Current)){
+                                                solutions.add(Current);
+                                                //counter++;
+                                            }
                                         }
                                     }
                                 }
@@ -110,6 +106,7 @@ public class Graph {
                 }
             }
         }
+        //System.out.println(counter);
         return solutions;
     }
 }

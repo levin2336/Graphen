@@ -16,7 +16,11 @@ public class Main {
         g.addEdge('C','E');
         g.addEdge('D','E');
 
-        g.allSolutions();
+        for (String str : g.allSolutions())
+        {
+            System.out.println(str);
+        }
+
 
     }
 }
