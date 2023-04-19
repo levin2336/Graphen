@@ -66,18 +66,42 @@ public class Graph {
         return matrix;
     }
 
+    public String intToString(int input){
+        switch (input){
+            case 0:
+                return "A";
+            case 1:
+                return "B";
+            case 2:
+                return "C";
+            case 3:
+                return "D";
+            case 4:
+                return "E";
+            default:
+                return "X";
+        }
+    }
+
     public ArrayList<String> allSolutions(){
-        ArrayList<String> solutions;
+        String Current;
+        ArrayList<String> solutions = new ArrayList<>();
+
 
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; i < 5; i++) {
-                for (int k = 0; i < 5; i++) {
-                    for (int l = 0; i < 5; i++) {
-                        for (int m = 0; i < 5; i++) {
-                            for (int n = 0; i < 5; i++) {
-                                for (int o = 0; i < 5; i++) {
-                                    for (int p = 0; i < 5; i++) {
-                                        
+            for (int j = 0; i < 5; j++) {
+                for (int k = 0; i < 5; k++) {
+                    for (int l = 0; i < 5; l++) {
+                        for (int m = 0; i < 5; m++) {
+                            for (int n = 0; i < 5; n++) {
+                                for (int o = 0; i < 5; o++) {
+                                    for (int p = 0; i < 5; p++) {
+                                        System.out.println(p);
+                                        Current = (intToString(i)+intToString(j)+intToString(k)+intToString(l)+intToString(m)+intToString(n)+intToString(o)+intToString(p));
+                                        if(isCircular(Current)){
+                                            solutions.add(Current);
+                                            System.out.println(Current);
+                                        }
                                     }
                                 }
                             }
@@ -86,6 +110,6 @@ public class Graph {
                 }
             }
         }
-        return null;
+        return solutions;
     }
 }

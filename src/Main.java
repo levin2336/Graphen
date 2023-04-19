@@ -16,6 +16,7 @@ public class Main {
         g.addEdge('C','E');
         g.addEdge('D','E');
 
-        System.out.println(g.isCircular("BCEDCABEA"));
+        g.allSolutions();
+
     }
 }
