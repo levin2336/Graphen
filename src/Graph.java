@@ -76,11 +76,30 @@ public class Graph {
         };
     }
 
+    public List<String> generateEightDigitNumbers() {
+        List<String> numbers = new ArrayList<>();
+        generate("", 8, numbers);
+        return numbers;
+    }
+
+    private void generate(String prefix, int remainingDigits, List<String> numbers) {
+        if (remainingDigits == 0) {
+            numbers.add(prefix);
+        } else {
+            for (char digit = '1'; digit <= '5'; digit++) {
+                generate(prefix + digit, remainingDigits - 1, numbers);
+            }
+        }
+    }
+
+    public ArrayList<String> allSolutionsRec(){
+        return null;
+    }
+
     public ArrayList<String> allSolutions(){
         String Current;
         ArrayList<String> solutions = new ArrayList<>();
-        //int counter = 0;
-
+        int counter = 0;
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -92,7 +111,7 @@ public class Graph {
                                     for (int p = 0; p < 5; p++) {
                                         for (int q = 0; q < 5; q++) {
                                             Current = (intToString(i)+intToString(j)+intToString(k)+intToString(l)+intToString(m)+intToString(n)+intToString(o)+intToString(p)+intToString(q));
-
+                                            counter++;
                                             if(isCircular(Current)){
                                                 solutions.add(Current);
                                                 //counter++;
@@ -106,7 +125,7 @@ public class Graph {
                 }
             }
         }
-        //System.out.println(counter);
+        System.out.println(counter);
         return solutions;
     }
 }
