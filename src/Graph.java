@@ -5,6 +5,7 @@ public class Graph {
 
     boolean[][] matrix;
     List<Character> charList;
+    private int numberOfEdges;
 
     public Graph(int anzahl) {
         matrix = new boolean[anzahl][anzahl];
@@ -41,6 +42,7 @@ public class Graph {
     public void addEdge(char k1, char k2){
         matrix[searchVerticeIndex(k1)][searchVerticeIndex(k2)] = true;
         matrix[searchVerticeIndex(k2)][searchVerticeIndex(k1)] = true;
+        numberOfEdges++;
     }
 
     public boolean hasEdge(char k1, char k2){
@@ -78,7 +80,7 @@ public class Graph {
 
     public List<String> generateEightDigitNumbers() {
         List<String> numbers = new ArrayList<>();
-        generate("", 8, numbers);
+        generate("", numberOfEdges, numbers);
         return numbers;
     }
 
@@ -86,7 +88,7 @@ public class Graph {
         if (remainingDigits == 0) {
             numbers.add(prefix);
         } else {
-            for (char digit = '1'; digit <= '5'; digit++) {
+            for (char digit = 'A'; digit <= matrix.length; digit++) {
                 generate(prefix + digit, remainingDigits - 1, numbers);
             }
         }
